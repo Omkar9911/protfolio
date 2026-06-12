@@ -52,8 +52,8 @@ export type Project = {
 export type BlogNote = {
   title: string;
   eyebrow: string;
-  summary: string;
-  readTime: string;
+  summary?: string;
+  readTime?: string;
 };
 
 export type CommandAction = {
