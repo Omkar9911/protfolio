@@ -81,7 +81,7 @@ export function ContactSection() {
           <SectionHeading
             eyebrow="Contact"
             title="Have a backend role, product problem, or platform idea?"
-//             description="Lets Connect!"
+            description="Lets Connect!"
             className="mb-8"
           />
           <div className="grid gap-3">
