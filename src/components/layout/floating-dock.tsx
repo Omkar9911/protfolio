@@ -12,8 +12,7 @@ export function FloatingDock() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 1, duration: 0.6, ease: "easeOut" }}
       aria-label="Primary navigation"
-      className="fixed bottom-4 left-1/2 z-40 hidden -translate-x-1/2 items-center gap-1 rounded-full border border-border bg-background/58 p-2 shadow-2xl shadow-sky-950/40 backdrop-blur-2xl md:flex"
-    >
+className="fixed bottom-4 left-1/2 z-40 flex -translate-x-1/2 items-center gap-1 rounded-full border border-border bg-background/58 p-2 shadow-2xl shadow-sky-950/40 backdrop-blur-2xl"    >
       {navItems.map((item) => {
         const Icon = item.icon;
         return (
