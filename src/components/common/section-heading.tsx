@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 type SectionHeadingProps = {
   eyebrow: string;
   title: string;
-  description: string;
+  description?: string;
   align?: "left" | "center";
   className?: string;
 };
