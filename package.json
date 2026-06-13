@@ -19,6 +19,7 @@
     "@react-three/drei": "latest",
     "@react-three/fiber": "latest",
     "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "class-variance-authority": "latest",
     "clsx": "latest",
     "framer-motion": "latest",
