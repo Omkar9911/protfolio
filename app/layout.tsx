@@ -77,7 +77,9 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <StructuredData />
         <AppProviders>{children}</AppProviders>
+
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
