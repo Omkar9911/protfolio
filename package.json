@@ -18,7 +18,7 @@
     "@radix-ui/react-slot": "latest",
     "@react-three/drei": "latest",
     "@react-three/fiber": "latest",
-    "@vercel/analytics": "latest",
+    "@vercel/analytics": "^2.0.1",
     "class-variance-authority": "latest",
     "clsx": "latest",
     "framer-motion": "latest",
