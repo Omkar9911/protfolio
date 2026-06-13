@@ -12,7 +12,7 @@ type AnimatedCounterProps = {
 
 export function AnimatedCounter({ value, suffix = "", decimals = 0, duration = 900 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true });
   const [count, setCount] = useState(0);
 
   useEffect(() => {
