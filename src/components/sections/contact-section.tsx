@@ -36,6 +36,9 @@ export function ContactSection() {
     },
   });
 
+
+  const handleClick = async (name: string) => { try { await fetch("/api/click-log", { method: "POST", headers: { "Content-Type": "application/json", }, body: JSON.stringify({ action: name, }), keepalive: true, }); } catch (error) { console.error(error); } };
+
   async function onSubmit(values: ContactFormValues) {
     setSubmitState({ type: "idle", message: "" });
     try {
@@ -87,6 +90,7 @@ export function ContactSection() {
           <div className="grid gap-3">
             <a
               href={`mailto:${profile.email}`}
+              onClick={() => handleClick("Contact - Email")}
               className="glass-card flex items-center gap-4 rounded-2xl p-4 transition hover:-translate-y-1"
             >
               <Mail className="size-5 text-sky-200" />
@@ -100,6 +104,7 @@ export function ContactSection() {
                   href={link.href}
                   target={link.external ? "_blank" : undefined}
                   rel={link.external ? "noreferrer" : undefined}
+                  onClick={() => handleClick(`Contact - ${link.label}`)}
                   className="glass-card flex items-center gap-4 rounded-2xl p-4 transition hover:-translate-y-1"
                 >
                   <Icon className="size-5 text-violet-200" />

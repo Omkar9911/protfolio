@@ -31,6 +31,22 @@ export function HeroSection() {
   const orbY = useTransform(scrollY, [0, 800], [0, 130]);
   const titleY = useTransform(scrollY, [0, 800], [0, -60]);
   const AvailabilityIcon = profileIcons.availability;
+ const handleClick = async (name: string) => {
+   try {
+     await fetch("/api/click-log", {
+       method: "POST",
+       headers: {
+         "Content-Type": "application/json",
+       },
+       body: JSON.stringify({
+         action: name,
+       }),
+       keepalive: true,
+     });
+   } catch (e) {
+     console.error(e);
+   }
+ };
 
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden">
@@ -99,7 +115,7 @@ export function HeroSection() {
             </MagneticButton>
             <MagneticButton>
               <Button asChild variant="secondary" size="lg">
-                <a href={profile.resumePath} download>
+                <a href={profile.resumePath} download onClick={() => handleClick("Hero - Download Resume")}>
                   Download resume <Download className="size-4" />
                 </a>
               </Button>
@@ -115,6 +131,7 @@ export function HeroSection() {
                   href={link.href}
                   target={link.external ? "_blank" : undefined}
                   rel={link.external ? "noreferrer" : undefined}
+                 onClick={() => handleClick(`Hero - ${link.label}`)}
                   className="group inline-flex items-center gap-2 rounded-full border border-border bg-white/6 px-4 py-2 text-sm text-muted-foreground transition hover:-translate-y-0.5 hover:bg-white/10 hover:text-foreground"
                 >
                   <Icon className="size-4" />
@@ -125,6 +142,7 @@ export function HeroSection() {
             })}
             <a
               href={`mailto:${profile.email}`}
+              onClick={() => handleClick("Hero - Email")}
               className="inline-flex items-center gap-2 rounded-full border border-border bg-white/6 px-4 py-2 text-sm text-muted-foreground transition hover:-translate-y-0.5 hover:bg-white/10 hover:text-foreground"
             >
               <Mail className="size-4" />

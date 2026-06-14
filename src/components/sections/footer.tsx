@@ -4,6 +4,7 @@ import { ArrowUpRight, Keyboard } from "lucide-react";
 import { profile, socialLinks } from "@/data/profile";
 
 export function Footer() {
+    const handleClick = async (name: string) => { try { await fetch("/api/click-log", { method: "POST", headers: { "Content-Type": "application/json", }, body: JSON.stringify({ action: `Footer - ${name}`, }), keepalive: true, }); } catch (error) { console.error(error); } };
   return (
     <footer className="section-shell pb-28 pt-8">
       <div className="glass-card rounded-[2rem] p-6">
@@ -23,6 +24,7 @@ export function Footer() {
                   href={link.href}
                   target={link.external ? "_blank" : undefined}
                   rel={link.external ? "noreferrer" : undefined}
+                  onClick={() => handleClick(`Footer - ${link.label}`)}
                   className="inline-flex items-center gap-2 rounded-full border border-border bg-white/6 px-4 py-2 text-sm text-muted-foreground transition hover:bg-white/10 hover:text-foreground"
                 >
                   <Icon className="size-4" />
